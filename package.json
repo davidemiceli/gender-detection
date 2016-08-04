@@ -1,0 +1,31 @@
+{
+  "name": "gender-detection",
+  "version": "0.0.1",
+  "description": "Detect the gender of a person using his/her first name.",
+  "license": "GNU GPL 3",
+  "main": "index.js",
+  "keywords": [
+    "gender",
+    "sex"
+  ],
+  "author": {
+    "name": "davidemiceli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidemiceli/gender-detection"
+  },
+  "files": [
+    "index.js",
+    "genders"
+  ],
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/davidemiceli/gender-detection/issues"
+  },
+  "maintainers": [
+    {
+      "name": "davidemiceli"
+    }
+  ]
+}
