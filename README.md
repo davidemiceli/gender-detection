@@ -22,4 +22,8 @@ g = gender.detect('GhJGhgj')
 
 ## Installation
 
+    $ npm install gender-detection
+
+Or you can use git:
+
     $ npm install git+https://git@github.com/davidemiceli/gender-detection.git
