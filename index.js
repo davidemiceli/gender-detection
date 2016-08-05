@@ -3,7 +3,6 @@ var female = require('./genders/female');
 
 exports.detect = function(fullName, lang) {
   var firstName = getFirstNameFromFullName(fullName);
-  firstName = firstName.toLowerCase();
   resgender = getGender(firstName, lang);
   return resgender;
 }
@@ -27,9 +26,7 @@ function getGender(firstName, lang) {
 }
 
 function getFirstNameFromFullName(fullName) {
-  var commaIndex = fullName.indexOf(',');
-  if (commaIndex >= 0) {
-    fullName = fullName.split(/,(.+)/)[1].trim();
-  }
+  fullName = fullName.toLowerCase();
+  fullName = fullName.replace(/^\s+|^0-9+|[^a-z-úñäâàáéèëêïîöôùüûœç\- ]+/g, '');
   return fullName.split(/\s/)[0];
 }

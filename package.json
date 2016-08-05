@@ -1,6 +1,6 @@
 {
   "name": "gender-detection",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Detect the gender of a person using his/her first name.",
   "license": "GPL-3.0",
   "main": "index.js",
