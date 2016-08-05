@@ -1,8 +1,9 @@
 # Gender Detection
 
 ## Description
-A node.js module to determine a person's gender based on his/her first name.
-It works also for many languages other than english.
+A node.js module to determine a person's gender based on his/her first name.  
+It works also for many languages other than english. It support international names.  
+This module is able to clean the text detecting gender from dirty or unclear names.
 
 ## Installation
 
@@ -26,4 +27,17 @@ g = gender.detect('Holly');
 
 g = gender.detect('GhJGhgj')
 // "unknown"
+
+// It works also with unclean or dirty names:
+g = gender.detect('BiLL$...');
+// "male"
+
+g = gender.detect('::Jenni♥fer::');
+// "female"
 ```
+
+### Tests
+
+In case you want to run some tests, please install the test framework Mocha (https://mochajs.org)  
+After installing it, on the parent directory type: `mocha test`.
+The test directory is obviously `/test`.
