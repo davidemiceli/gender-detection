@@ -9,11 +9,11 @@ exports.detect = function(fullName, lang) {
 
 function getGender(firstName, lang) {
     gender = 'unknown';
-    if (lang && male[firstName][lang] && female[firstName][lang]) {
+    if (lang && male[firstName] && male[firstName][lang] && female[firstName] && female[firstName][lang]) {
         gender = 'unisex';
-    } else if (lang && male[firstName][lang]) {
+    } else if (lang && male[firstName] && male[firstName][lang]) {
         gender = 'male';
-    } else if (lang && female[firstName][lang]) {
+    } else if (lang && female[firstName] && female[firstName][lang]) {
         gender = 'female';
     } else if (male[firstName] && female[firstName]) {
         gender = 'unisex';

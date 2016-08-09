@@ -11,7 +11,7 @@ var gender = require('../index.js');
 
 describe('Simple names', function() {
     it('It should return male, female, or unknown', function() {
-        assert.equal('male', gender.detect('John'));
+        assert.equal('male', gender.detect('John','en'));
         assert.equal('female', gender.detect('Holly'));
     });
 });
@@ -27,5 +27,13 @@ describe('Bad formatted names', function() {
     it('It should return male, female, or unknown', function() {
         assert.equal('male', gender.detect('BiLL$...'));
         assert.equal('female', gender.detect('::Jenni♥fer::'));
+    });
+});
+
+describe('Simple names with languages variable', function() {
+    it('It should return male, female, or unknown', function() {
+        assert.equal('male', gender.detect('Johnny','en'));
+        assert.equal('male', gender.detect('Andrea','it'));
+        assert.equal('unisex', gender.detect('Andrea','hgjj'));
     });
 });

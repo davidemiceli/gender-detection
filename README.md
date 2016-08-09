@@ -2,16 +2,13 @@
 
 ## Description
 A node.js module to determine a person's gender based on his/her first name.  
-It works also for many languages other than english. It support international names.  
-This module is able to clean the text detecting gender from dirty or unclear names.
+
+It works also for many languages other than english, supporting international names, using an own datasource of 40.000 records that can be extended.
+This module is able to clean the text, detecting gender from dirty or unclear names.
 
 ## Installation
 
     $ npm install gender-detection
-
-Or using github:
-
-    $ npm install git+https://git@github.com/davidemiceli/gender-detection.git
 
 ## Example
 ```javascript
