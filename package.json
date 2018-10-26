@@ -1,6 +1,6 @@
 {
   "name": "gender-detection",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Detect the gender of a person using his/her first name.",
   "license": "GPL-3.0",
   "main": "index.js",
@@ -29,5 +29,8 @@
   },
   "scripts": {
     "test": "mocha test"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }

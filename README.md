@@ -13,7 +13,9 @@ This module is able to clean the text, detecting gender from dirty or unclear na
 ## Example
 ```javascript
 // Require gender detection module
-var gender = require('gender-detection');
+const gender = require('gender-detection');
+
+let g;
 
 // Use it to detect the gender:
 g = gender.detect('Tim Johnson');
@@ -31,10 +33,13 @@ g = gender.detect('BiLL$...');
 
 g = gender.detect('::Jenni♥fer::');
 // "female"
+
+// Extract the first name
+const first_name = gender.getFirstName('Mario Bros');
+// "mario"
 ```
 
-### Tests
-
-In case you want to run some tests, please install the test framework Mocha (https://mochajs.org)  
-After installing it, on the parent directory type: `mocha test`.
-The test directory is obviously `/test`.
+### Unit tests
+```shell
+npm test
+```

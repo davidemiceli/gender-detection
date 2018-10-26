@@ -1,32 +1,41 @@
-var male = require('./genders/male');
-var female = require('./genders/female');
+'use strict';
 
+// Requirements
+const male = require('./genders/male');
+const female = require('./genders/female');
+
+// Match gender type from the first name
+const getGender = function(firstName, lang) {
+  if (lang && male[firstName] && male[firstName][lang] && female[firstName] && female[firstName][lang]) {
+    return 'unisex';
+  } else if (lang && male[firstName] && male[firstName][lang]) {
+    return 'male';
+  } else if (lang && female[firstName] && female[firstName][lang]) {
+    return 'female';
+  } else if (male[firstName] && female[firstName]) {
+    return 'unisex';
+  } else if (male[firstName]) {
+    return 'male';
+  } else if (female[firstName]) {
+    return 'female';
+  }
+  return 'unknown';
+}
+
+// Extract the first name from a full name string
+const getFirstNameFromFullName = function(fullName) {
+  return fullName
+    .toLowerCase()
+    .replace(/^\s+|^0-9+|[^a-z-úñäâàáéèëêïîöôùüûœç\- ]+/g, '')
+    .split(/\s/)[0];
+}
+
+// Detect gender
 exports.detect = function(fullName, lang) {
-  var firstName = getFirstNameFromFullName(fullName);
-  resgender = getGender(firstName, lang);
+  const firstName = getFirstNameFromFullName(fullName);
+  const resgender = getGender(firstName, lang);
   return resgender;
 }
 
-function getGender(firstName, lang) {
-    gender = 'unknown';
-    if (lang && male[firstName] && male[firstName][lang] && female[firstName] && female[firstName][lang]) {
-        gender = 'unisex';
-    } else if (lang && male[firstName] && male[firstName][lang]) {
-        gender = 'male';
-    } else if (lang && female[firstName] && female[firstName][lang]) {
-        gender = 'female';
-    } else if (male[firstName] && female[firstName]) {
-        gender = 'unisex';
-    } else if (male[firstName]) {
-        gender = 'male';
-    } else if (female[firstName]) {
-        gender = 'female';
-    }
-    return gender;
-}
-
-function getFirstNameFromFullName(fullName) {
-  fullName = fullName.toLowerCase();
-  fullName = fullName.replace(/^\s+|^0-9+|[^a-z-úñäâàáéèëêïîöôùüûœç\- ]+/g, '');
-  return fullName.split(/\s/)[0];
-}
+// Export getFirstNameFromFullName function
+exports.getFirstName = getFirstNameFromFullName;
