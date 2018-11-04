@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Gender Detection</title>
+  <meta name="description" content="A node.js module to determine a person's gender based on his/her first name.">
+  <meta name="author" content="Davide Miceli">
+
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1 id="genderdetection">Gender Detection</h1>
+
+    <h2 id="description">Description</h2>
+    
+    <p>A node.js module to determine a person's gender based on his/her first name.</p>
+    
+    <p>It works also for many languages other than english, supporting international names, using an own datasource of 40.000 records that can be extended.
+    This module is able to clean the text, detecting gender from dirty or unclear names.</p>
+    
+    <h2 id="installation">Installation</h2>
+    
+    <pre><code>$ npm install gender-detection
+    </code></pre>
+    
+    <h2 id="example">Example</h2>
+    
+    <pre><code class="javascript language-javascript">// Require gender detection module
+    const gender = require('gender-detection');
+    
+    let g;
+    
+    // Use it to detect the gender:
+    g = gender.detect('Tim Johnson');
+    // "male"
+    
+    g = gender.detect('Holly');
+    // "female"
+    
+    g = gender.detect('GhJGhgj')
+    // "unknown"
+    
+    // It works also with unclean or dirty names:
+    g = gender.detect('BiLL$...');
+    // "male"
+    
+    g = gender.detect('::Jenni♥fer::');
+    // "female"
+    
+    // Extract the first name
+    const first_name = gender.getFirstName('Mario Bros');
+    // "mario"
+    </code></pre>
+    
+    <h3 id="unittests">Unit tests</h3>
+    
+    <pre><code class="shell language-shell">npm test
+    </code></pre>
+
+  </div>
+
+</body>
+</html>
